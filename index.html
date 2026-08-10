@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookreadle — Remember more of what you read</title>
+  <meta name="description" content="Bookreadle turns nonfiction books into active-recall sessions that help you remember what you read.">
+  <meta property="og:title" content="Remember more of what you read.">
+  <meta property="og:description" content="Active recall and intelligent review for nonfiction readers.">
+  <meta property="og:image" content="assets/og-green.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top"><img src="assets/logo.png" alt=""><b>Bookreadle</b></a>
+      <button class="menu" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-links"><a href="#how">How it works</a><a href="#why">Why Bookreadle</a><a href="#contact">Contact</a><a class="btn small" href="#join">Join MVP</a></div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div><div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="wrap two-col">
+        <div class="hero-copy"><p class="label">✦ BUILT FOR CURIOUS NONFICTION READERS</p><div class="hero-banner"><img src="assets/og-green.png" alt="Bookreadle — Remember more of what you read"></div><p class="lead">You spend hours learning from nonfiction books. Bookreadle helps those ideas stay with you through personalized questions, active recall, and intelligent review.</p><a class="btn" href="#join">Join the MVP →</a><small class="note"><span class="pulse"></span> Early access for nonfiction readers.</small></div>
+        <div class="quiz card tilt-card">
+          <div class="quiz-top"><span><img src="assets/logo.png" alt=""> Bookreadle</span><b>Review session</b></div>
+          <div class="progress-text"><span>QUESTION 3 OF <i id="question-total">20</i></span><span>Chapter 4</span></div><div class="progress"><i></i></div>
+          <h3>Which sequence best describes the four stages of the habit loop?</h3>
+          <div class="answers"><button>A <span>Cue → craving → response → reward</span></button><button>B <span>Trigger → action → result → repeat</span></button><button>C <span>Need → plan → effort → outcome</span></button><button>D <span>Idea → routine → feedback → habit</span></button></div>
+          <div class="check"><small>Select one answer</small><button>Check answer →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap split" id="why"><div><p class="label">THE PROBLEM</p><h2>You finished the book.<br><em>How much do you still remember?</em></h2></div><div><p>People spend hours reading valuable nonfiction and understanding ideas in the moment. Weeks later, much of that knowledge is gone.</p><p>Rereading is inefficient, and highlights alone rarely create durable memories.</p><strong>Bookreadle makes remembering part of reading.</strong></div></section>
+
+    <section class="science"><div class="wrap split"><div class="icon">?</div><div><p class="label">WHY QUIZZING WORKS</p><h2>The quiz isn’t just a test.<br><em>It’s part of the learning.</em></h2><p>It feels counterintuitive, but trying to retrieve an idea strengthens the path back to it. The retrieval-practice principles in <cite>Make It Stick</cite> show why low-stakes self-testing can produce more durable learning than simply rereading.</p></div></div></section>
+
+    <section class="how wrap" id="how"><div class="center"><p class="label">HOW IT WORKS</p><h2>From page to <em>long-term memory.</em></h2></div><div class="steps"><article><b>01</b><h3>Add a book</h3><p>Choose a nonfiction book you are reading.</p></article><article><b>02</b><h3>Choose a chapter</h3><p>Focus the review on exactly what you read.</p></article><article><b>03</b><h3>Answer questions</h3><p>Retrieve important ideas from memory.</p></article><article><b>04</b><h3>Remember longer</h3><p>Revisit concepts before they fade.</p></article></div></section>
+
+    <section class="dark"><div class="wrap two-col"><div><p class="label">A SESSION, IN PRACTICE</p><h2>Short reviews.<br><em>Stronger memories.</em></h2><p>Choose your chapter and session length. Bookreadle turns it into a focused four-option quiz.</p></div><div class="settings card"><h3>Atomic Habits</h3><p>Build a chapter review</p><div><label>Chapter<select><option>Chapter 1</option><option>Chapter 2</option><option>Chapter 3</option><option selected>Chapter 4</option><option>Chapter 5</option></select></label><label>Questions<select id="quiz-count"><option>10</option><option>15</option><option selected>20</option><option>25</option><option>30</option></select></label></div><small>Four options per question</small></div></div></section>
+
+    <section class="join" id="join"><div class="wrap join-card"><div><p class="label">EARLY ACCESS</p><h2>Help us build a better way to <em>remember books.</em></h2><p>Join the test group to get early access and help shape Bookreadle.</p></div><form id="join-form"><label>Email address<input type="email" required placeholder="you@example.com"></label><button class="btn" type="submit">Join the MVP Test List →</button><small>No spam. Just product updates and an invitation.</small></form></div></section>
+
+    <section class="contact wrap split" id="contact"><div><p class="label">GET IN TOUCH</p><h2>Have a question<br>or an idea?</h2><p>We would love to hear your feedback or partnership ideas.</p><a href="mailto:contact@bookreadle.com">contact@bookreadle.com ↗</a></div><form id="contact-form" class="card"><div class="form-row"><label>Name<input required placeholder="Your name"></label><label>Email<input type="email" required placeholder="you@example.com"></label></div><label>Reason<select><option>General question</option><option>MVP access</option><option>Feedback</option><option>Partnership</option></select></label><label>Message<textarea required rows="5" placeholder="Tell us what’s on your mind…"></textarea></label><button class="btn" type="submit">Send message →</button></form></section>
+  </main>
+
+  <footer><div class="wrap"><span>© 2026 Bookreadle</span><span>Remember more of what you read.</span><a href="#top">Back to top ↑</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
