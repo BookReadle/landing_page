@@ -17,19 +17,42 @@ document.querySelector('#quiz-count').addEventListener('change', event => {
   document.querySelector('#question-total').textContent = event.target.value;
 });
 
-function success(form, message) {
-  form.innerHTML = `<div class="success">✓ ${message}</div>`;
+async function submitForm(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const status = form.querySelector('.form-status');
+  const originalLabel = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  status.className = 'form-status';
+  status.textContent = '';
+
+  try {
+    const endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form)
+    });
+    const result = await response.json();
+    if (!response.ok || result.success === false) throw new Error('Submission failed');
+    form.reset();
+    status.classList.add('success');
+    status.textContent = form.id === 'join-form'
+      ? '✓ You’re on the MVP test list.'
+      : '✓ Thanks — your message has been sent.';
+  } catch (error) {
+    status.classList.add('form-error');
+    status.textContent = 'Something went wrong. Please email support@bookreadle.com directly.';
+  } finally {
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
 }
 
-document.querySelector('#join-form').addEventListener('submit', event => {
-  event.preventDefault();
-  success(event.currentTarget, "You're on the MVP test list.");
-});
-
-document.querySelector('#contact-form').addEventListener('submit', event => {
-  event.preventDefault();
-  success(event.currentTarget, "Thanks — your message is ready to connect to a form service.");
-});
+document.querySelector('#join-form').addEventListener('submit', submitForm);
+document.querySelector('#contact-form').addEventListener('submit', submitForm);
 
 const revealSections = document.querySelectorAll('#why, .science .split, #how, .dark .two-col, .join-card, #contact');
 revealSections.forEach(section => section.classList.add('reveal'));
