@@ -54,7 +54,7 @@ async function submitForm(event) {
 document.querySelector('#join-form').addEventListener('submit', submitForm);
 document.querySelector('#contact-form').addEventListener('submit', submitForm);
 
-const revealSections = document.querySelectorAll('#why, .science .split, #how, .dark .two-col, .join-card, #contact');
+const revealSections = document.querySelectorAll('#why, .science .split, #how, .dark .two-col, #survey .survey-card, .join-card, #contact');
 revealSections.forEach(section => section.classList.add('reveal'));
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
