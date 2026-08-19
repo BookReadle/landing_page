@@ -6,11 +6,42 @@ menu.addEventListener('click', () => {
 });
 nav.addEventListener('click', () => nav.classList.remove('open'));
 
-document.querySelectorAll('.answers button').forEach(button => {
+const answerButtons = document.querySelectorAll('.answers button');
+const quizFeedback = document.querySelector('.quiz-feedback');
+const quizReset = document.querySelector('.quiz-reset');
+
+answerButtons.forEach(button => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('.answers button').forEach(item => item.classList.remove('active'));
-    button.classList.add('active');
+    if (button.classList.contains('correct') || button.classList.contains('incorrect')) return;
+
+    answerButtons.forEach(item => {
+      item.disabled = true;
+      item.classList.remove('active');
+    });
+
+    const correctAnswer = document.querySelector('.answers button[data-correct="true"]');
+    if (button.dataset.correct === 'true') {
+      button.classList.add('correct');
+      quizFeedback.className = 'quiz-feedback feedback-correct';
+      quizFeedback.innerHTML = '<b>Correct!</b> A habit moves through cue, craving, response, and reward.';
+    } else {
+      button.classList.add('incorrect');
+      correctAnswer.classList.add('correct');
+      quizFeedback.className = 'quiz-feedback feedback-incorrect';
+      quizFeedback.innerHTML = '<b>Not quite.</b> The correct answer is A: cue → craving → response → reward.';
+    }
+    quizReset.disabled = false;
   });
+});
+
+quizReset.addEventListener('click', () => {
+  answerButtons.forEach(button => {
+    button.disabled = false;
+    button.classList.remove('active', 'correct', 'incorrect');
+  });
+  quizFeedback.className = 'quiz-feedback';
+  quizFeedback.textContent = 'Choose an answer to see how active recall works.';
+  quizReset.disabled = true;
 });
 
 document.querySelector('#quiz-count').addEventListener('change', event => {

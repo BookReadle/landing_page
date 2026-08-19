@@ -1,4 +1,4 @@
-# Bookreadle static landing page
+# BookReadle static landing page
 
 ## Form activation
 
